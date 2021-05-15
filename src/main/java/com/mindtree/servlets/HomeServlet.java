@@ -1,30 +1,27 @@
 package com.mindtree.servlets;
 
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-import com.mindtree.dao.EntryDaoImpl;
 import com.mindtree.model.Employee;
 
 /**
- * Servlet implementation class GetValues2
+ * Servlet implementation class HomeServlet
  */
-public class GetValues2 extends HttpServlet {
+public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public GetValues2() {
+	public HomeServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -36,33 +33,23 @@ public class GetValues2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		List<Employee> emp = new LinkedList<>();
-		FileWriter writer = null;
-		PrintWriter out = null;
-		String empToJson = null;
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
-		try {
-			out = response.getWriter();
-			emp = new EntryDaoImpl().getValues();
-			Gson gson = new Gson();
-			empToJson = gson.toJson(emp);
-			response.setStatus(200);
-			out.println(empToJson);
-			out.flush();
+		List<Employee> empList = new ArrayList<Employee>();
+		Employee emp1 = new Employee();
+		emp1.setId(1);
+		emp1.setName("Shreevatsa MS");
+		emp1.setSkills("Java");
+		Employee emp2 = new Employee();
+		emp2.setId(2);
+		emp2.setName("Vignesh Sharma");
+		emp2.setSkills("Python");
+		empList.add(emp1);
+		empList.add(emp2);
+		request.setAttribute("empList", empList);
 
-			writer = new FileWriter("D:\\Script Workspace\\JSONProject\\employee.json");
-
-			writer.write(empToJson + System.lineSeparator());
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			if (out != null)
-				out.close();
-		}
-
+		request.setAttribute("htmlTagData", "<br/> creates a new line.");
+		request.setAttribute("url", "https://github.com/dushyntSharma");
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/jstl.jsp");
+		rd.forward(request, response);
 	}
 
 	/**

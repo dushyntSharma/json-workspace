@@ -10,9 +10,20 @@
 		<description></description>
 		<servlet-class>com.mindtree.servlets.GetValues2</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>HomeServlet</display-name>
+		<servlet-name>HomeServlet</servlet-name>
+		<servlet-class>com.mindtree.servlets.HomeServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>GetValues2</servlet-name>
 		<url-pattern>/GetValues2</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>HomeServlet</servlet-name>
+		<url-pattern>/HomeServlet</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
