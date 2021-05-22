@@ -13,7 +13,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class PlayerImpl {
+public class JsonToDatabase {
 	static String url = "jdbc:mysql://127.0.0.1:3306/playerjson";
 	static String user = "root";
 	static String password = "9909";
