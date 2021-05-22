@@ -33,7 +33,9 @@
 		<br>
 		<button type="button" class="btn btn-success" id="values-btn">Get
 			Values</button>
-		<br>
+		<br> <a href="jsonapi.jsp">Json Cricket</a>
+		<br> <a href="timejsonapi.html">Json Time</a>
+		<br> <a href="./ajax/animals.html">Json Animals</a>
 
 		<table class="table">
 			<thead>
