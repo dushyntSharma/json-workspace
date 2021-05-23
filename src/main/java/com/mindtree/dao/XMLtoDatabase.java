@@ -27,8 +27,7 @@ public class XMLtoDatabase {
 
 			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-			Document doc = docBuilder
-					.parse(new File("C:/Users/M1064478/Desktop/Eclipse WorkSpaces/XML&JSON/Files/XmlTodatabse.xml"));
+			Document doc = docBuilder.parse(new File("D:/Script Workspace/JSONProject/XmlTodatabse.xml"));
 
 			doc.getDocumentElement().normalize();
 
@@ -57,7 +56,7 @@ public class XMLtoDatabase {
 					String address = ((Node) textLNList.item(0)).getNodeValue().trim();
 
 					int i = st.executeUpdate(
-							"insert into firstxml(name,address) values('" + name + "','" + address + "')");
+							"insert into xmldatabase(name,address) values('" + name + "','" + address + "')");
 				}
 			}
 			System.out.println("Data is successfully inserted!");
