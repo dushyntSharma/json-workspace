@@ -1,9 +1,19 @@
 package com.mindtree.dao;
 
-import java.io.*;
-import java.sql.*;
-import org.w3c.dom.*;
-import javax.xml.parsers.*;
+import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class XMLtoDatabase {
 	static String url = "jdbc:mysql://127.0.0.1:3306/playerjson";
@@ -34,6 +44,7 @@ public class XMLtoDatabase {
 			System.out.println("Root element of the doc is " + doc.getDocumentElement().getNodeName());
 
 			NodeList listOfPersons = doc.getElementsByTagName("employee");
+			List<String> list = new ArrayList<String>();
 
 			for (int s = 0; s < listOfPersons.getLength(); s++) {
 
@@ -58,6 +69,7 @@ public class XMLtoDatabase {
 					int i = st.executeUpdate(
 							"insert into xmldatabase(name,address) values('" + name + "','" + address + "')");
 				}
+
 			}
 			System.out.println("Data is successfully inserted!");
 		} catch (Exception err) {

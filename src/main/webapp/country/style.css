@@ -1,0 +1,25 @@
+<html>
+    <head>
+    <title>Rest Countries</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="fluid-container">
+        <div class="inputContainer">
+           <h1>Search Country Data</h1>
+           <hr>
+            <input type="text" class="form-group" name="country"><br>
+            <button class="btn btn-primary" onclick="getCountry()">search</button>
+        </div>
+        <div class="outputContainer">
+            <pre id="countryData"></pre>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="index.js"></script>
+
+    </div>
+
+</body>
+</html>
