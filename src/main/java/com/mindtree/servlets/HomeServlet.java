@@ -45,7 +45,8 @@ public class HomeServlet extends HttpServlet {
 		empList.add(emp1);
 		empList.add(emp2);
 		request.setAttribute("empList", empList);
-
+// 		List<Employee> empNew = new ArrayList<Employee>();
+// 		empNew.add(e);
 		request.setAttribute("htmlTagData", "<br/> creates a new line.");
 		request.setAttribute("url", "https://github.com/dushyntSharma");
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/jstl.jsp");
